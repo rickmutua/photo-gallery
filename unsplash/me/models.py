@@ -27,6 +27,7 @@ class Post(models.Model):
 
     description = models.CharField(max_length=150)
 
+    image = models.ImageField(upload_to= 'post/')
 
     editor = models.ForeignKey(Editor)
 
