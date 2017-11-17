@@ -13,7 +13,7 @@
 
         {% bootstrap_css %}
 
-        <link rel="stylesheet" href="{% static 'css/home.css' %}">
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
 
     {% endblock %}
 
@@ -24,7 +24,38 @@
 
     {% block content %}
 
+        {{ block.super }}
 
+            <div class="container">
+
+                <div class="row">
+
+                    <h2> Picky </h2>
+
+                    <p> Beautiful, free photos. </p>
+
+                    <p> Gifted by the world's most generous community of photographers. </p>
+
+                    <button type="button" class="btn btn-default"> Submit a photo </button>
+
+                </div>
+
+
+                {% for me_item in me %}
+
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+
+                        <img src="{{ me_item.post_image.url }}" class="img-responsive" alt="Image">
+
+                    </div>
+
+                {% empty %}
+
+                    <h2 class="text-center"> There Are No Posts </h2>
+
+                {% endfor %}
+
+            </div>
 
     {% endblock %}
 
