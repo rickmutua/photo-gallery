@@ -1,14 +1,19 @@
 from django.shortcuts import render, redirect
-from .models import Post
+from django.http import Http404
+
+from .models import Post, Tags
+
 
 # Create your views here.
 
 
 def index(request):
 
-    posts = Post.
+    posts = Post.objects.all()
 
-    return render(request, 'index.html', {'posts':posts})
+    tags = Tags.objects.all()
+
+    return render(request, 'index.html', {'posts':posts, 'tags':tags })
 
 
 def search_results(request):
@@ -23,3 +28,14 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'search.html', {"message": message})
+
+
+def post(request, post_id):
+
+    try:
+        post = Post.objects.get(id=post_id)
+
+    except DoesNotExist:
+        raise Http404()
+
+    return render(request, 'post.html', {'post': post})
