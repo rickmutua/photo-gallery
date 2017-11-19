@@ -6,6 +6,7 @@ from django.db import models
 class Editor (models.Model):
 
     name = models.CharField(max_length=65)
+    username = models.CharField(max_length=65, blank=True)
 
     email = models.EmailField()
 
@@ -16,7 +17,7 @@ class Editor (models.Model):
 
 class Tags(models.Model):
 
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=100)
 
     def __str__(self):
 
@@ -25,7 +26,7 @@ class Tags(models.Model):
 
 class Post(models.Model):
 
-    description = models.CharField(max_length=150)
+    description = models.CharField(max_length=250)
 
     image = models.ImageField(upload_to= 'post/')
 

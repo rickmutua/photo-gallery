@@ -39,3 +39,18 @@ def post(request, post_id):
         raise Http404()
 
     return render(request, 'post.html', {'post': post})
+
+
+def tag(request, tag_id):
+
+    try:
+
+        tag = Tags.objects.get(id = tag_id)
+
+        posts = Post.objects.filter(tag = tag).all()
+
+    except DoesNotExist:
+
+        raise Http404()
+
+    return render(request, 'tag.html', {'tag': tag, 'posts': posts})
