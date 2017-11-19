@@ -47,7 +47,7 @@ def tag(request, tag_id):
 
         tag = Tags.objects.get(id = tag_id)
 
-        posts = Post.objects.filter(tag = tag).all()
+        posts = Post.objects.filter(tags=tag).all()
 
     except DoesNotExist:
 

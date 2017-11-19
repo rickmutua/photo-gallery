@@ -1,10 +1,71 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% load static %}
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    {% block styles %}
+
+        {% bootstrap_css %}
+
+        <link rel="stylesheet" href="{% static 'css/tag.css' %}">
+
+    {% endblock %}
+
 </head>
 <body>
+
+
+    {% include 'navbar.html' %}
+
+    {% block content %}
+
+        {{ block.super }}
+
+            <div class="container-fluid">
+
+                {% for tag_item in tags %}
+
+                    <a href="{% url 'tag' tag_item.id %}" class="btn btn-default"> {{ tag_item.name }} </a>
+
+                {% endfor %}
+
+            </div>
+
+
+            <div class="container">
+
+                <h1> {{ tag.name }} images </h1>
+
+                    <p> {{ posts.count }} free {{ tag.name }} images </p>
+
+                    <br>
+
+                    <br>
+
+                    {% for post_item in posts %}
+
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4" id="posts" style="margin-top: 30px;">
+
+                            <a href="{% url 'post' post_item.id %}"><img src="{{ post_item.image.url }}" class="img-responsive" alt="Image"></a>
+
+                        </div>
+
+                    {% empty %}
+
+                        <h2 class="text-center"> There Are No Posts </h2>
+
+                    {% endfor %}
+
+            </div>
+
+
+    {% endblock %}
 
 </body>
 </html>
