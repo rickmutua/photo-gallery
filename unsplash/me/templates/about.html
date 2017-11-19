@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    {% block content %}
+
+        {{ block.super }}
+
+            <div class="container" style="text-align: center;">
+
+                <h1> Make something awesome. </h1>
+
+                <p>
+                    Over 300,00 free high-resolution
+                    photos brought to you by the world's
+                    most generous community of photographers.
+                </p>
+
+                    <a href="{% url 'index' %}" class="bt btn-success"> Join Unsplash for free </a>
+
+            </div>
+
+
+            <div class="container-fluid">
+
+                <img src="...">
+
+            </div>
+
+
+            <div class="container" style="text-align: center;">
+
+                <h2> Whant can I use Picky for? </h2>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+
+                        <p>
+                            300,000+ photos for your next project
+                        </p>
+
+                        <p>
+                            With a huge library of photos and thousands more being added each day, chances are we’ve got a photo for you.
+                        </p>
+
+                        <p>
+                            Find inspiration in the new photos we hand-select every day or use our search to find and download exactly what you’re looking for.
+                        </p>
+
+                    </div>
+
+
+                    <div class="col-md-6">
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+    {% endblock %}
+
+</body>
+</html>

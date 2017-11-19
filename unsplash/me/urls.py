@@ -11,7 +11,11 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^search/', views.search_results, name='search_results'),
     url(r'^post/(\d+)$', views.post, name='post'),
-    url(r'^tag/(\d+)$', views.tag, name='tag')
+    url(r'^tag/(\d+)$', views.tag, name='tag'),
+    url(r'^about/', views.about, name='about'),
+    url(r'^explore/', views.explore, name='explore'),
+    url(r'^collections/', views.collections, name='collections'),
+
 ]
 
 
