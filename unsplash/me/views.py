@@ -18,16 +18,17 @@ def index(request):
 
 def search_results(request):
 
-    if 'post' in request.GET and request.GET["post"]:
-        search_term = request.GET.get("post")
-        searched_posts = Post.search_by_title(search_term)
-        message = f"{search_term}"
+    if 'tag' in request.GET and request.GET["tag"]:
+        search_term = request.GET.get("tag")
+        searched_tags = Tags.search_by_tag(search_term)
 
-        return render(request, 'search.html', {"message": message, "posts": searched_posts})
+        posts = Post.objects.filter(tags=tag).all()
+
+        return render(request, 'tag.html', {"tags": searched_tags, 'tag':tag, 'posts': posts})
 
     else:
-        message = "You haven't searched for any term"
-        return render(request, 'search.html', {"message": message})
+        message = "You havent searched for any term"
+        return render(request, 'tag.html', {"message": message})
 
 
 def post(request, post_id):
