@@ -24,6 +24,13 @@ class Tags(models.Model):
 
         return self.name
 
+    @classmethod
+    def search_by_tag(cls, search_term):
+
+        tags = cls.objects.filter(name__icontains=search_term)
+
+        return tags
+
 
 class Post(models.Model):
 
