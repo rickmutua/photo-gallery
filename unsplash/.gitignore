@@ -1,0 +1,7 @@
+virtual/
+*.pyc
+.idea/
+.env
+.idea
+../virtual/
+../.idea/
