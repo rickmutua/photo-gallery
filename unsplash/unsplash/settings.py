@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '5owh0e8-xc*$2*wo^!)wj02s30gj7tx+!661m^wdmwm+ms3bdl'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['python-picky.herokuapp.com']
 
 
 # Application definition
@@ -85,6 +85,12 @@ DATABASES = {
     'PASSWORD':'qwerty12345',
     }
 }
+
+import dj_database_url
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
