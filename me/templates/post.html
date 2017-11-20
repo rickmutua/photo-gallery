@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+    {% include 'navbar.html' %}
+
+        {% block content %}
+
+            <div class="container-fluid">
+
+                <div class="row">
+
+                    <h3> {{ post.editor.name }} <br> <p style="font-size:12px;"> {{ post.editor.username }} </p> </h3>
+                </div>
+
+            </div>
+
+
+            <div class="container">
+
+                <div class="row">
+
+                    <img src="{{ post.image.url }}" class="img-responsive" alt="Image">
+
+                </div>
+
+            </div>
+
+                <br>
+
+
+            <div class="container-fluid">
+
+                <p> {{ post.description }} </p>
+
+            </div>
+
+                <hr>
+
+            <div class="container">
+
+                <h2> Related photos </h2>
+
+                    {% for post_item in posts.tags.all %}
+
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4" id="posts" style="margin-top: 30px;">
+
+                            <a href="{% url 'post' post_item.id %}"><img src="{{ post_item.image.url }}" class="img-responsive" alt="Image"></a>
+
+                        </div>
+
+                    {% empty %}
+
+                        <h2 class="text-center"> There Are No Posts </h2>
+
+                    {% endfor %}
+
+
+            </div>
+
+        {% endblock %}
+
+</body>
+</html>
