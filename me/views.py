@@ -35,11 +35,20 @@ def post(request, post_id):
 
     try:
         post = Post.objects.get(id=post_id)
+        gotten_tags = post.tags.all()
+
+        print(gotten_tags)
+
+        related_tag = gotten_tags[0]
+
+        print(related_tag)
+
+        related_images = Post.objects.filter(tags = related_tag).all()
 
     except DoesNotExist:
         raise Http404()
 
-    return render(request, 'post.html', {'post': post})
+    return render(request, 'post.html', {'post': post, 'related_images': related_images})
 
 
 def tag(request, tag_id):
