@@ -27,7 +27,7 @@ SECRET_KEY = '5owh0e8-xc*$2*wo^!)wj02s30gj7tx+!661m^wdmwm+ms3bdl'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['https://python-picky.herokuapp.com/']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
