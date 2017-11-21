@@ -27,16 +27,6 @@
 
         {{ block.super }}
 
-            <div class="container-fluid">
-
-                {% for tag_item in tags %}
-
-                    <a href="{% url 'tag' tag_item.id %}" class="btn btn-default"> {{ tag_item.name }} </a>
-
-                {% endfor %}
-
-            </div>
-
 
             <div class="container">
 
