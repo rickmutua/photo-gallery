@@ -24,11 +24,11 @@ def search_results(request):
 
         posts = Post.objects.filter(tags= searched_tags).all()
 
-        return render(request, 'tag.html', {"tags": searched_tags, 'posts': posts})
+        return render(request, 'searched-tag.html', {"tags": searched_tags, 'posts': posts})
 
     else:
         message = "You haven't searched for any term"
-        return render(request, 'tag.html', {"message": message})
+        return render(request, 'searched-tag.html', {"message": message})
 
 
 def post(request, post_id):
