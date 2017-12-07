@@ -19,6 +19,8 @@ class Tags(models.Model):
 
     name = models.CharField(max_length=100)
 
+    image = models.ImageField(upload_to='tag/')
+
 
     def __str__(self):
 

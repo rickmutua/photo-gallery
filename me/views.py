@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import Http404
 
 from .models import Post, Tags
+from django.core.exceptions import ObjectDoesNotExist
 
 
 # Create your views here.
@@ -9,9 +10,15 @@ from .models import Post, Tags
 
 def index(request):
 
-    posts = Post.objects.all()
+    try:
 
-    tags = Tags.objects.all()
+        posts = Post.objects.all()
+
+        tags = Tags.objects.all()
+
+    except ObjectDoesNotExist:
+
+        raise Http404()
 
     return render(request, 'index.html', {'posts':posts, 'tags':tags })
 
@@ -37,11 +44,7 @@ def post(request, post_id):
         post = Post.objects.get(id=post_id)
         gotten_tags = post.tags.all()
 
-        print(gotten_tags)
-
         related_tag = gotten_tags[0]
-
-        print(related_tag)
 
         related_images = Post.objects.filter(tags = related_tag).all()
 
