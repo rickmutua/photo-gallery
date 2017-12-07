@@ -30,7 +30,11 @@
 
             </div>
 
-                <form class="navbar-form" role="search" action="{% url 'search_results' %}">
+            <div class="row">
+
+                <div class="col-md-4">
+
+                    <form class="navbar-form" role="search" action="{% url 'search_results' %}">
 
                     <div class="input-group">
 
@@ -47,6 +51,10 @@
                     </div>
 
                 </form>
+
+                </div>
+
+                <div class="col-md-6" id="right">
 
                     <ul class="nav navbar-nav navbar-right">
 
@@ -75,6 +83,13 @@
                         </li>
 
                     </ul>
+
+                </div>
+
+            </div>
+
+
+
 
         </div>
 

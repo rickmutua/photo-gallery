@@ -29,14 +29,15 @@
 
 
             <div class="container">
+
                 {%for tag in tags%}
 
                     <h1> {{ tag.name }} images </h1>
 
-
-
                     <p> {{ posts.count }} free {{ tag.name }} images </p>
+
                 {%endfor%}
+
                     <br>
 
                     <br>
