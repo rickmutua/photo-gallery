@@ -6,3 +6,23 @@
 #nav a {
   color: black;
 }
+
+#right {
+
+  float: right;
+
+}
+
+.form-control {
+
+  border-radius: 20px;
+  width: 100%;
+
+}
+
+#search {
+
+  border-radius: 20px;
+  border-right: none;
+
+}
