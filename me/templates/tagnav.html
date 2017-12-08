@@ -16,10 +16,6 @@
 
             <a style="background-image: url('{{ tag.image.url }}'); color: white" href="{% url 'tag' tag.id %}" class="btn btn-default"> {{ tag.name }} </a>
 
-        {% for tag_item in tags %}
-
-            <a href="{% url 'tag' tag_item.id %}" class="btn btn-default"> {{ tag_item.name }} </a>
-
         {% endfor %}
 
     </div>
