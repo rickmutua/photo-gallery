@@ -61,11 +61,19 @@
 
                         </a>
 
+                {% for posts_item in posts %}
+
+                        <br>
+
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4" id="posts" style="margin-top: 30px;">
+
+                        <a href="{% url 'post' posts_item.id %}"><img src="{{ posts_item.image.url }}" class="img-responsive" alt="Image"></a>
+
                     </div>
 
                 {% empty %}
 
-                    <h2 class="text-center"> There are no posts </h2>
+                  <h2 class="text-center"> There are no posts </h2>
 
                 {% endfor %}
 
@@ -94,6 +102,10 @@
 
                     </div>
 
+
+                    <h2 class="text-center"> There Are No Posts </h2>
+
+                {% endfor %}
 
             </div>
 
@@ -132,3 +144,7 @@
                         <!--<h2 class="text-center"> There Are No Posts </h2>-->
 
                     <!--{% endfor %}-->
+
+</body>
+</html>
+

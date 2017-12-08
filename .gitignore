@@ -1,5 +1,6 @@
-venv
+.env
 *.pyc
 .idea/
-.env
 virtual/
+venv
+
